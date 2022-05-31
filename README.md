@@ -35,11 +35,7 @@ go run ./dummycluster
 Run Envoy in shell #3:
 
 ```
-# Configure the path to the Envoy binary.
-export ENVOY_BIN=/tmp/envoy-bin/envoy
-
-# Run Envoy.
-$ENVOY_BIN --config-path examples/envoy.yaml
+docker run --rm -t -v $(pwd)/examples/envoy.yaml:/etc/envoy/envoy.yaml -e ENVOY_UID=$(id -u) envoyproxy/envoy-dev:006bbc3614724ead239fcc3a2438b4dd6b9173e6
 ```
 
 Send a request through Envoy in shell #4:

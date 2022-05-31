@@ -46,14 +46,15 @@ static_resources:
               typed_per_filter_config:
                 envoy.filters.http.on_demand:
                   "@type": type.googleapis.com/envoy.extensions.filters.http.on_demand.v3.PerRouteConfig
-                  odcds_config:
-                    resource_api_version: V3
-                    api_config_source:
-                      api_type: DELTA_GRPC
-                      transport_api_version: V3
-                      grpc_services:
-                        envoy_grpc:
-                          cluster_name: xds_cluster
+                  odcds:
+                    source:
+                      resource_api_version: V3
+                      api_config_source:
+                        api_type: DELTA_GRPC
+                        transport_api_version: V3
+                        grpc_services:
+                          envoy_grpc:
+                            cluster_name: xds_cluster
               routes:
               - match: { prefix: "/" }
                 route:
