@@ -56,7 +56,7 @@ func (s *ODCDS) DeltaClusters(dcs clustersvc.ClusterDiscoveryService_DeltaCluste
 				continue
 			}
 
-			cluster, err := ptypes.MarshalAny(makeCluster(r, "127.0.0.1", 8081))
+			cluster, err := ptypes.MarshalAny(makeCluster(r, "192.168.65.2", 8081)) // TODO this needs to be IP of host machine reachable from within the docker container
 			if err != nil {
 				s.l.Printf("Marshalling cluster config: %v", err)
 				continue
