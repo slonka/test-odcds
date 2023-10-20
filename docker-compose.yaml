@@ -12,7 +12,8 @@ services:
     volumes:
       - ./:/app
   envoy:
-    image: envoyproxy/envoy-dev:006bbc3614724ead239fcc3a2438b4dd6b9173e6
+    build:
+      dockerfile: envoy-with-kuma-tp.Dockerfile
     ports:
       - "8080:8080"
     environment:
