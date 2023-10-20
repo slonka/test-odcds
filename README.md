@@ -22,6 +22,10 @@ cluster resource doesn't expire and Envoy isn't restarted.
 docker-compose up
 ```
 
+Exec into the container and run curl:
+
 ```bash
-kumactl install transparent-proxy --kuma-dp-uid 1
+docker exec -it test-odcds-envoy-1 bash
+su curl
+curl google.com
 ```

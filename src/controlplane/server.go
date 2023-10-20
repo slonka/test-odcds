@@ -80,7 +80,7 @@ func (s *ODCDS) DeltaClusters(dcs clustersvc.ClusterDiscoveryService_DeltaCluste
             Resources:         resources,
             Nonce:             nonce,
             TypeUrl:           "type.googleapis.com/envoy.config.cluster.v3.Cluster",
-            SystemVersionInfo: "foo",
+            SystemVersionInfo: "google.com",
         }
 
         j, err = json.MarshalIndent(resp, "", "  ")

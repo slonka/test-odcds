@@ -6,8 +6,11 @@ FROM ubuntu:jammy@sha256:9b8dec3bf938bc80fbe758d856e96fdfab5f56c39d44b0cff351e84
 
 COPY --from=envoy /usr/local/bin/envoy /usr/local/bin/envoy
 COPY --from=kuma /usr/bin/kumactl /usr/bin/kumactl
+COPY scripts/init.sh /init.sh
+
+RUN chmod +x /init.sh
 
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y iptables iproute2
+    apt-get install --no-install-recommends -y iptables iproute2 curl
 
-CMD ["/usr/local/bin/envoy", "-c", "/etc/envoy/envoy.yaml"]
+CMD ["/init.sh"]
