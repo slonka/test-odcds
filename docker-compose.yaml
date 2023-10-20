@@ -1,0 +1,21 @@
+services:
+  control_plane:
+    image: golang:1.21.1
+    command: go run .
+    working_dir: /app/src/controlplane
+    volumes:
+      - ./:/app
+  dummy_server:
+    image: golang:1.21.1
+    command: go run .
+    working_dir: /app/src/dummycluster
+    volumes:
+      - ./:/app
+  envoy:
+    image: envoyproxy/envoy-dev:006bbc3614724ead239fcc3a2438b4dd6b9173e6
+    ports:
+      - "8080:8080"
+    environment:
+      - ENVOY_UID=501
+    volumes:
+      - ./examples/envoy.yaml:/etc/envoy/envoy.yaml
