@@ -16,7 +16,6 @@ services:
       dockerfile: envoy-with-kuma-tp.Dockerfile
     ports:
       - "8080:8080"
-    environment:
-      - ENVOY_UID=501
+    privileged: true
     volumes:
       - ./examples/envoy.yaml:/etc/envoy/envoy.yaml
