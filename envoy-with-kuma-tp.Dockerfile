@@ -1,6 +1,6 @@
 FROM kumahq/kumactl:2.4.3 as kuma
 
-FROM envoyproxy/envoy-dev:006bbc3614724ead239fcc3a2438b4dd6b9173e6 as envoy
+FROM envoyproxy/envoy:v1.27.1 as envoy
 
 FROM ubuntu:jammy@sha256:9b8dec3bf938bc80fbe758d856e96fdfab5f56c39d44b0cff351e847bb1b01ea
 
